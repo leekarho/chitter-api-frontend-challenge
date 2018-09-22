@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div id="peeps">Hello</div>
+  </body>
+
+
+</html>
+
+<script src="src/chitter-controller.js"></script>
+<script src="src/viewallpeeps.js"></script>
+<script src="spec/viewallpeepsSpec.js"></script>
+
+<script>
+  var viewAllPeeps = new ViewAllPeeps
+  var controller = new ChitterController(viewAllPeeps)
+  console.log(controller.getsHtml());
+</script>
