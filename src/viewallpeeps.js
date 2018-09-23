@@ -2,8 +2,8 @@
   function ViewAllPeeps(){
   }
 
-  ViewAllPeeps.prototype.fetchPeeps = function(){
-    fetch("https://chitter-backend-api.herokuapp.com/peeps")
+  ViewAllPeeps.prototype.fetchPeeps = function(api = "https://chitter-backend-api.herokuapp.com/peeps"){
+    fetch(api)
     .then((resp) => resp.json())
     .then(data => {
       this.listPeeps(data)
@@ -16,7 +16,8 @@
       allPeeps += `<li><div> ${peep.user.handle} <br> ${peep.body}</div></li>`
     });
     allPeeps += "</ul>";
-    return document.getElementById("peeps").innerHTML = allPeeps
+    console.log(allPeeps)
+    return allPeeps
   };
 
   exports.ViewAllPeeps = ViewAllPeeps;
