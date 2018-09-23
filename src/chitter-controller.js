@@ -4,7 +4,7 @@
   }
 
   ChitterController.prototype.getsHtml = function(element = document.getElementById("peeps")){
-    element.innerHTML = this.view.listPeeps();
+    element.innerHTML = this.view.fetchPeeps();
   };
 
   exports.ChitterController = ChitterController;

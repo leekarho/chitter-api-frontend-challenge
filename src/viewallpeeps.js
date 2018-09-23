@@ -1,27 +1,21 @@
 (function(exports){
   function ViewAllPeeps(){
-    this.peepArray = [];
   }
 
-  ViewAllPeeps.prototype.returnPeeps = function(){
+  ViewAllPeeps.prototype.fetchPeeps = function(){
     fetch("https://chitter-backend-api.herokuapp.com/peeps")
     .then((resp) => resp.json())
     .then(data => {
-      this.peepArray.push(data)
+      this.listPeeps(data)
     })
-    .catch((err) => console.log(err));
   };
 
-
-  ViewAllPeeps.prototype.listPeeps = function() {
-    this.returnPeeps();
-    var array = this.peepArray
-    var allPeeps = "pie"
-    array.forEach(function(peep) {
-      allPeeps += "pie"
+  ViewAllPeeps.prototype.listPeeps = function(peepArray) {
+    var allPeeps = "<ul><div";
+    peepArray.forEach(function(peep) {
+      allPeeps += ` id=${peep.id}><li>${peep.body}</li>`
     });
-    allPeeps += "pie";
-    console.log(allPeeps)
+    allPeeps += "</div></ul>";
     return allPeeps;
   };
 
