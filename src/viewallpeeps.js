@@ -11,12 +11,12 @@
   };
 
   ViewAllPeeps.prototype.listPeeps = function(peepArray) {
-    var allPeeps = "<ul><div";
+    var allPeeps = "<ul>";
     peepArray.forEach(function(peep) {
-      allPeeps += ` id=${peep.id}><li>${peep.body}</li>`
+      allPeeps += `<li><div> ${peep.id}<li>${peep.body}</div></li>`
     });
-    allPeeps += "</div></ul>";
-    return allPeeps;
+    allPeeps += "</ul>";
+    return document.getElementById("peeps").innerHTML = allPeeps
   };
 
   exports.ViewAllPeeps = ViewAllPeeps;
