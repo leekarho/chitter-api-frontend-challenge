@@ -13,7 +13,7 @@
   ViewAllPeeps.prototype.listPeeps = function(peepArray) {
     var allPeeps = "<ul>";
     peepArray.forEach(function(peep) {
-      allPeeps += `<li><div> ${peep.id}<li>${peep.body}</div></li>`
+      allPeeps += `<li><div> ${peep.user.handle} <br> ${peep.body}</div></li>`
     });
     allPeeps += "</ul>";
     return document.getElementById("peeps").innerHTML = allPeeps
